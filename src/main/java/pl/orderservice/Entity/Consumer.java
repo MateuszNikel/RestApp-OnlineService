@@ -14,7 +14,7 @@ public class Consumer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private static Long seqIq = 1L;
+    private static Long seqIq = 0L;
 
     private String firstName;
 
