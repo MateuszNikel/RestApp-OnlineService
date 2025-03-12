@@ -23,5 +23,4 @@ public class ConsumerService {
         return consumer.map(o -> modelMapper.map(o, ConsumerDto.class)).orElseThrow(() -> new ObjectNotFoundException("Consumer with id " + id + " not found"));
     }
 
-    public ConsumerDto
 }
