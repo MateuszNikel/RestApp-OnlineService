@@ -22,4 +22,6 @@ public class ConsumerService {
         Optional<Consumer> consumer = consumerRepo.findById(id);
         return consumer.map(o -> modelMapper.map(o, ConsumerDto.class)).orElseThrow(() -> new ObjectNotFoundException("Consumer with id " + id + " not found"));
     }
+
+    public ConsumerDto
 }

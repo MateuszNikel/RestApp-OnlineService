@@ -28,7 +28,7 @@ public class Consumer {
 
     private String street;
 
-    private String nrOfHouse;
+    private String houseNumber;
 
     public static Long incrementId() {
         return seqIq++;
@@ -39,14 +39,14 @@ public class Consumer {
         return this;
     }
 
-    public Consumer(String firstName, String lastName, String phoneNumber, String city, String postcode, String street, String nrOfHouse){
+    public Consumer(String firstName, String lastName, String phoneNumber, String city, String postcode, String street, String houseNumber){
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.postcode = postcode;
         this.street = street;
-        this.nrOfHouse = nrOfHouse;
+        this.houseNumber = houseNumber;
         this.id = incrementId();
     }
 
