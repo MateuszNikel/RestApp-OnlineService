@@ -22,4 +22,5 @@ public class UserService {
         Optional<User> user = userRepo.findById(id);
         return user.map(o -> modelMapper.map(o, UserDto.class)).orElseThrow(() -> new ObjectNotFoundException("User with id " + id + " not found"));
     }
+
 }

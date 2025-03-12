@@ -22,4 +22,5 @@ public class ProductIngredientsService {
         Optional<ProductIngredients> productIngredients = productIngredientsRepo.findById(id);
         return productIngredients.map(o -> modelMapper.map(o, ProductIngredientsDto.class)).orElseThrow(() -> new ObjectNotFoundException("Product ingredients with id " + id + " not found"));
     }
+
 }

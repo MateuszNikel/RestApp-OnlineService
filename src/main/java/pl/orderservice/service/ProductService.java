@@ -22,4 +22,5 @@ public class ProductService {
         Optional<Product> product = productRepo.findById(id);
         return product.map(o -> modelMapper.map(o, ProductDto.class)).orElseThrow(() -> new ObjectNotFoundException("Product with id " + id + " not found"));
     }
+
 }
