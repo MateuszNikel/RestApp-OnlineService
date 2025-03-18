@@ -20,7 +20,14 @@ public class ConsumerService {
 
     public ConsumerDto findById(Long id) {
         Optional<Consumer> consumer = consumerRepo.findById(id);
-        return consumer.map(o -> modelMapper.map(o, ConsumerDto.class)).orElseThrow(() -> new ObjectNotFoundException("Consumer with id " + id + " not found"));
+        return consumer.map(o -> modelMapper.map(o, ConsumerDto.class)).orElseThrow(
+                () -> new ObjectNotFoundException("Consumer with id " + id + " not found"));
+    }
+
+    public Consumer addConsumerToOrder(ConsumerDto consumerDto){
+        Optional<ConsumerDto> consumerDto1 = Optional.ofNullable(consumerDto);
+       return consumerRepo.save(consumerDto1.map(o ->modelMapper.map(o, Consumer.class))
+               .orElseThrow(() -> new ObjectNotFoundException("Error..?")));
     }
 
 }
