@@ -2,6 +2,8 @@ package pl.orderservice.service;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pl.orderservice.Entity.Product;
 import pl.orderservice.Exception.ObjectNotFoundException;
@@ -35,4 +37,12 @@ public class ProductService {
                 .orElseThrow(() -> new ObjectNotFoundException("Wrong data")));
     }
 
+    public ResponseEntity<Void> removeProduct(Long id) {
+        if( productRepo.findById(id).isPresent() ){
+            productRepo.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+    }
 }

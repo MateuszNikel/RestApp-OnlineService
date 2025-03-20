@@ -1,6 +1,8 @@
 package pl.orderservice.Controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.orderservice.Entity.Product;
 import pl.orderservice.Model.ProductDto;
@@ -28,5 +30,10 @@ public class ProductController {
     @PostMapping("/add")
     public Product addNewProduct(@RequestBody ProductDto productDto){
         return productService.addNewProduct(productDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> removeProduct (@PathVariable("id") Long id) {
+         return productService.removeProduct(id);
     }
 }
