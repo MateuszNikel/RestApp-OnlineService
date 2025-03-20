@@ -14,7 +14,6 @@ public class ConsumerController {
 
     private final ConsumerService consumerService;
 
-
     @GetMapping("/{id}")
     public ConsumerDto findConsumerById(@PathVariable("id") Long id) {
         return consumerService.findById(id);
